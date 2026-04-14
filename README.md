@@ -41,51 +41,101 @@ examples/LT7683_Demo/LT7683_Demo.ino
 
 ## 🚀 Getting Started
 
+```cpp
 #include <LT7683.h>
 
 LT7683 tft(CS_PIN, RST_PIN);
 
 void setup() {
-SPI.begin();
-tft.begin();
+  SPI.begin();
+  tft.begin();
 
-tft.back(0, 0, 0);
-tft.fore(255, 255, 255);
+  tft.back(0, 0, 0);
+  tft.fore(255, 255, 255);
 
-tft.circle(200, 200, 50);
+  tft.circle(200, 200, 50);
 }
 
 void loop() {
 }
+```
 
 ---
 
-## 🧱 Structure
+## 🧩 API Overview
 
-src/        → library source files
-examples/   → demo sketches
-docs/       → images / GIFs
+### Initialization
 
----
+```cpp
+LT7683 tft(CS_PIN, RST_PIN);
+```
 
-## ⚙️ Hardware
-
-Tested with:
-
-* LT7683-based TFT displays (7" / 10")
-* RA8876-compatible controllers
-* SAMD21 (Feather M0)
-* ATtiny (I2C variant in earlier projects)
+* `CS_PIN`  → SPI chip select
+* `RST_PIN` → display reset
 
 ---
 
-## 📌 Notes
+### Print Compatibility
 
-* Library focuses on **low-level control + speed**
-* No heavy abstractions — intended for embedded use
-* Designed to scale from **tiny MCUs → SAMD-class boards**
+The library inherits from Arduino's `Print` class.
+
+This allows usage of:
+
+* `print()`
+* `println()`
+* `write()`
+
+Example:
+
+```cpp
+tft.setCursor(100, 100);
+tft.print("Hello");
+```
 
 ---
+
+### Drawing Primitives
+
+* `line()`
+* `rect()`, `fillRect()`
+* `circle()`, `fillCircle()`
+* `triangle()`, `fillTriangle()`
+* `arc()`, `fillArc()`
+
+---
+
+### Text
+
+* `textSize()`
+* `textScale()`
+* `setCursor()`
+* `write()`, `print()`
+
+---
+
+### Colors
+
+* `fore(r, g, b)`
+* `back(r, g, b)`
+
+---
+
+### 7-Segment Rendering
+
+7-segment digits are rendered using primitives and are not part of `Print`.
+
+Example:
+
+```cpp
+tft.set7SegScale(2);
+tft.plot7Seg(200, 200, 5);
+```
+
+Features:
+
+* Fully scalable
+* No font required
+* Clean rendering at large sizes
 
 ---
 
@@ -93,38 +143,33 @@ Tested with:
 
 The LT7683 (RA8876-compatible) is a hardware graphics controller.
 
-- All drawing operations are executed **on the controller itself**
-- The MCU only sends commands (not pixels)
-- This enables smooth animations even on slower MCUs
+* All drawing operations are executed on the controller itself
+* The MCU only sends commands (not pixels)
+* This enables smooth animations even on slower MCUs
 
 Coordinate system:
 
-- Origin: **top-left (0,0)**
-- X → right
-- Y → down
+* Origin: top-left (0,0)
+* X → right
+* Y → down
 
 ---
 
 ## ⚡ Interface & Performance
 
-- SPI interface (tested on SAMD21, ATmega32u4, ATtiny)
-- Stable operation at typical Arduino SPI speeds
-- No framebuffer required on MCU side
+* SPI interface (tested on SAMD21, ATmega32u4, ATtiny)
+* Stable operation at typical Arduino SPI speeds
+* No framebuffer required on MCU side
 
 ---
 
-## 🔢 7-Segment Rendering
+## 🔢 7-Segment Rendering Details
 
-The library includes a lightweight 7-segment renderer:
+The 7-segment renderer is built entirely from drawing primitives.
 
-- Built **entirely from primitives**
-- No bitmap fonts required
-- Fully scalable
-
-Typical usage:
-
-- Clean rendering from small sizes up to large displays
-- Tested up to high scaling factors (e.g. `scale = 20`)
+* No bitmap fonts
+* Resolution independent
+* Suitable for very large digits (tested up to high scaling factors)
 
 ---
 
@@ -132,40 +177,32 @@ Typical usage:
 
 Typical SPI wiring:
 
-- MOSI → Display MOSI
-- SCK  → Display SCK
-- CS   → Chip Select
-- RST  → Reset
+* MOSI → Display MOSI
+* SCK  → Display SCK
+* CS   → Chip Select
+* RST  → Reset
 
-(Refer to your specific LT7683 board for exact pinout)
-
----
-
-## 🧩 API Overview
-
-Core functionality:
-
-- Drawing:
-  - `line()`, `rect()`, `circle()`, `triangle()`, `arc()`
-- Filled shapes:
-  - `fillRect()`, `fillCircle()`, `fillTriangle()`
-- Text:
-  - `textSize()`, `textScale()`, `setCursor()`, `write()`
-- Colors:
-  - `fore(r,g,b)`, `back(r,g,b)`
-
-The API is intentionally minimal and close to the hardware.
+Refer to your specific LT7683 board for exact pinout.
 
 ---
 
 ## 🧪 Tested Platforms
 
-- SAMD21 (Feather M0)
-- ATmega32u4
-- ATtiny (I2C/SPI variants)
+* SAMD21 (Feather M0)
+* ATmega32u4
+* ATtiny (I2C/SPI variants)
 
 ---
 
+## 🧱 Structure
+
+```
+src/        → library source files
+examples/   → demo sketches
+docs/       → images / GIFs
+```
+
+---
 
 ## 📄 License
 
@@ -176,4 +213,3 @@ MIT License
 ## ©
 
 © ToSStudio
-
