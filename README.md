@@ -87,6 +87,86 @@ Tested with:
 
 ---
 
+---
+
+## 🧠 Controller Notes
+
+The LT7683 (RA8876-compatible) is a hardware graphics controller.
+
+- All drawing operations are executed **on the controller itself**
+- The MCU only sends commands (not pixels)
+- This enables smooth animations even on slower MCUs
+
+Coordinate system:
+
+- Origin: **top-left (0,0)**
+- X → right
+- Y → down
+
+---
+
+## ⚡ Interface & Performance
+
+- SPI interface (tested on SAMD21, ATmega32u4, ATtiny)
+- Stable operation at typical Arduino SPI speeds
+- No framebuffer required on MCU side
+
+---
+
+## 🔢 7-Segment Rendering
+
+The library includes a lightweight 7-segment renderer:
+
+- Built **entirely from primitives**
+- No bitmap fonts required
+- Fully scalable
+
+Typical usage:
+
+- Clean rendering from small sizes up to large displays
+- Tested up to high scaling factors (e.g. `scale = 20`)
+
+---
+
+## 🔌 Wiring (basic)
+
+Typical SPI wiring:
+
+- MOSI → Display MOSI
+- SCK  → Display SCK
+- CS   → Chip Select
+- RST  → Reset
+
+(Refer to your specific LT7683 board for exact pinout)
+
+---
+
+## 🧩 API Overview
+
+Core functionality:
+
+- Drawing:
+  - `line()`, `rect()`, `circle()`, `triangle()`, `arc()`
+- Filled shapes:
+  - `fillRect()`, `fillCircle()`, `fillTriangle()`
+- Text:
+  - `textSize()`, `textScale()`, `setCursor()`, `write()`
+- Colors:
+  - `fore(r,g,b)`, `back(r,g,b)`
+
+The API is intentionally minimal and close to the hardware.
+
+---
+
+## 🧪 Tested Platforms
+
+- SAMD21 (Feather M0)
+- ATmega32u4
+- ATtiny (I2C/SPI variants)
+
+---
+
+
 ## 📄 License
 
 MIT License
