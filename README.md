@@ -177,10 +177,11 @@ The 7-segment renderer is built entirely from drawing primitives.
 
 Typical SPI wiring:
 
-* MOSI → Display MOSI
-* SCK  → Display SCK
-* CS   → Chip Select
-* RST  → Reset
+MOSI → Display SDI
+MISO ← Display SDO (required for status reads)
+SCK → Display SCK
+CS → Chip Select (CS#)
+RST → Reset (RESET#)
 
 Refer to your specific LT7683 board for exact pinout.
 
