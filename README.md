@@ -177,15 +177,29 @@ The 7-segment renderer is built entirely from drawing primitives.
 
 Typical SPI wiring:
 
-MOSI → Display SDI
-MISO ← Display SDO (required for status reads)
-SCK → Display SCK
-CS → Chip Select (CS#)
-RST → Reset (RESET#)
+* MOSI → Display SDI  
+* MISO ← Display SDO *(required for status reads)*  
+* SCK  → Display SCK  
+* CS   → Chip Select (CS#)  
+* RST  → Reset (RESET#)  
 
 Refer to your specific LT7683 board for exact pinout.
 
----
+**Important:**
+
+* **MISO (SDO) must be connected**  
+  → required for:
+  * `check_busy_draw()`  
+  * `status_read()`
+
+* The library uses **hardware status polling** instead of fixed delays  
+  → ensures smooth and reliable rendering
+
+* If MISO is not connected:
+  * drawing may still work  
+  * but timing becomes unreliable  
+  * animations may stutter
+
 
 ## 🧪 Tested Platforms
 
