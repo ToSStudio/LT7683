@@ -1,0 +1,31 @@
+LT7683	KEYWORD1
+
+begin	KEYWORD2
+writeReg	KEYWORD2
+graphicMode	KEYWORD2
+textMode	KEYWORD2
+displayOn	KEYWORD2
+
+textSize	KEYWORD2
+textScale	KEYWORD2
+setCursor	KEYWORD2
+drawChar	KEYWORD2
+
+line	KEYWORD2
+rect	KEYWORD2
+fillRect	KEYWORD2
+circle	KEYWORD2
+fillCircle	KEYWORD2
+triangle	KEYWORD2
+fillTriangle	KEYWORD2
+
+arc	KEYWORD2
+fillArc	KEYWORD2
+
+plot7Seg	KEYWORD2
+plot7SegRound	KEYWORD2
+drawColon	KEYWORD2
+
+clearScreen	KEYWORD2
+fore	KEYWORD2
+back	KEYWORD2
