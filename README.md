@@ -22,6 +22,23 @@ Designed for **performance, clarity, and minimal overhead**, with direct registe
 
 ---
 
+## 📦 Installation
+
+### Arduino Library Manager (recommended)
+
+1. Open Arduino IDE  
+2. Go to **Tools → Manage Libraries…**  
+3. Search for: `LT7683`  
+4. Click **Install**
+
+### Manual installation
+
+Download this repository as ZIP and install via:
+
+**Sketch → Include Library → Add .ZIP Library…**
+
+---
+
 ## 🧪 Demo
 
 The included demo showcases:
