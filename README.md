@@ -198,7 +198,7 @@ The 7-segment renderer is built entirely from drawing primitives.
 
 ---
 
-## 🔌 Wiring (basic)
+## 🔌 Wiring 
 
 Typical SPI wiring:
 
