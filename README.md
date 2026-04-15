@@ -49,7 +49,7 @@ LT7683 tft(CS_PIN, RST_PIN);
 void setup() {
   SPI.begin();
   tft.begin();
-
+  tft.clearScreen();
   tft.back(0, 0, 0);
   tft.fore(255, 255, 255);
 
