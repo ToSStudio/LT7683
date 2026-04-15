@@ -174,7 +174,7 @@ Coordinate system:
 
 ## ⚡ Interface & Performance
 
-* SPI interface (tested on SAMD21, ATmega32u4, ATtiny)
+* SPI interface (4-Wire, tested on SAMD21, ATmega32u4, ATtiny)
 * Stable operation at typical Arduino SPI speeds
 * No framebuffer required on MCU side
 
