@@ -64,7 +64,7 @@ examples/LT7683_Demo/LT7683_Demo.ino
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started ("First Light")
 
 ```cpp
 #include <LT7683.h>
