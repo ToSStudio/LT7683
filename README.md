@@ -39,6 +39,14 @@ Download this repository as ZIP and install via:
 
 ---
 
+## ▶️ Quick Start
+
+Open the example:
+
+**File → Examples → LT7683 → LT7683_Demo**
+
+---
+
 ## 🧪 Demo
 
 The included demo showcases:
@@ -61,7 +69,7 @@ examples/LT7683_Demo/LT7683_Demo.ino
 ```cpp
 #include <LT7683.h>
 
-LT7683 tft(CS_PIN, RST_PIN);
+LT7683 tft(CS_PIN, RST_PIN); // use your pins
 
 void setup() {
   SPI.begin();
