@@ -178,6 +178,9 @@ Coordinate system:
 * X → right
 * Y → down
 
+Compatibility:
+* this code is intended for the 7" & 10" TFT Modules with a resolution of 1024 * 600 px as sold by Eastrising / BuyDisplay
+
 ---
 
 ## ⚡ Interface & Performance
