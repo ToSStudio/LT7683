@@ -131,17 +131,56 @@ tft.print("Hello");
 
 ### Text
 
-* `textSize()`
-* `textScale()`
-* `setCursor()`
-* `write()`, `print()`
+### 🔤 Text
+
+Text rendering is controlled via **size** and **scale**:
+
+```
+textSize(uint8_t size)
+textScale(uint8_t scale)
+```
+
+* `textSize`: **1–3** (font selection)
+* `textScale`: **1–3** (pixel scaling)
+
+**Example:**
+
+```cpp
+tft.textSize(2);
+tft.textScale(2);
+tft.setCursor(100, 100);
+tft.print("Hello");
+```
+
+Maximum effective size = textSize × textScale
 
 ---
 
-### Colors
+### 🎨 Colors
 
-* `fore(r, g, b)`
-* `back(r, g, b)`
+Colors are specified as 8-bit RGB values:
+
+```
+fore(uint8_t r, uint8_t g, uint8_t b)
+back(uint8_t r, uint8_t g, uint8_t b)
+```
+
+Each component ranges from **0–255**.
+
+**Example:**
+
+```cpp
+tft.fore(0, 0, 0);       // black
+tft.fore(255, 255, 255); // white
+tft.fore(255, 0, 0);     // red
+tft.fore(0, 255, 0);     // green
+tft.fore(255, 255, 0);   // yellow
+tft.fore(0, 120, 255);   // blue-ish
+
+tft.back(0, 0, 0);       // black background
+```
+
+> Note: Colors are internally mapped to the active display format (e.g. RGB565).
 
 ---
 
