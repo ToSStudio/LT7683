@@ -11,10 +11,9 @@ Designed for **performance, clarity, and minimal overhead**, with direct registe
 ## ✨ Features
 
 * Fast drawing primitives:
-
-  * Lines, rectangles, circles, triangles, arcs
+* Lines, rectangles, circles, triangles, arcs
 * Filled shapes and rounded rectangles
-* Text rendering with size and scale control
+* Text rendering with size and scale control (inherits from print)
 * 7-segment display helpers
 * RGB color control (foreground / background)
 * Optimized for SPI-driven displays
