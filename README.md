@@ -140,6 +140,7 @@ Serial.println(c, HEX); // RGB565 value
 
 * `line()`
 * `rect()`, `fillRect()`
+* `ellipse()`, `fillEllipse()`
 * `circle()`, `fillCircle()`
 * `triangle()`, `fillTriangle()`
 * `arc()`, `fillArc()`
