@@ -11,7 +11,7 @@ Designed for **performance, clarity, and minimal overhead**, with direct registe
 ## ✨ Features
 
 * Fast drawing primitives:
-* * `drawPixel()`
+* `drawPixel()`
 * `readPixel()`
 * Lines, rectangles, circles, triangles, arcs
 * Filled shapes and rounded rectangles
@@ -121,6 +121,22 @@ tft.print("Hello");
 ---
 
 ### Drawing Primitives
+
+### Pixel Access
+
+Single pixels can be written and read directly from display memory.
+
+Example:
+
+```cpp
+tft.graphicMode();
+
+tft.drawPixel(100, 100, 255, 0, 0);
+
+uint16_t c = tft.readPixel(100, 100);
+
+Serial.println(c, HEX); // RGB565 value
+```
 
 * `line()`
 * `rect()`, `fillRect()`
