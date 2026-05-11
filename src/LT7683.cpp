@@ -203,6 +203,53 @@ size_t LT7683::write(uint8_t c) {
 }
 
 // ------------------------------------------------------------
+// Pixels
+// ------------------------------------------------------------
+
+void LT7683::drawPixel(uint16_t x, uint16_t y,
+                       uint8_t r, uint8_t g, uint8_t b) {
+
+  // Set GRAM cursor position
+  writeReg(0x5F, x & 0xFF);
+  writeReg(0x60, x >> 8);
+  writeReg(0x61, y & 0xFF);
+  writeReg(0x62, y >> 8);
+
+  uint16_t clr = RGB565(r, g, b);
+
+  // Write pixel to GRAM
+  cmdWrite(0x04);
+  dataWrite(clr & 0xFF);
+  dataWrite(clr >> 8);
+}
+
+uint16_t LT7683::readPixel(uint16_t x, uint16_t y) {
+
+  // Set GRAM cursor position
+  writeReg(0x5F, x & 0xFF);
+  writeReg(0x60, x >> 8);
+  writeReg(0x61, y & 0xFF);
+  writeReg(0x62, y >> 8);
+
+  // Prepare GRAM read
+  cmdWrite(0x04);
+
+  // Read 16-bit RGB565 pixel
+  digitalWrite(CS_8876, LOW);
+
+  SPI.transfer(RA8876_SPI_DATAREAD);
+
+  SPI.transfer(0x00);               // Dummy read
+
+  uint8_t lsb = SPI.transfer(0x00);
+  uint8_t msb = SPI.transfer(0x00);
+
+  digitalWrite(CS_8876, HIGH);
+
+  return ((uint16_t)msb << 8) | lsb;
+}
+
+// ------------------------------------------------------------
 // Primitives
 // ------------------------------------------------------------
 
