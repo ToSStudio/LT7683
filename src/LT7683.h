@@ -60,6 +60,9 @@ public:
 
   void setFrameAddress(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end);
 
+  void drawPixel(uint16_t x, uint16_t y, uint8_t r, uint8_t g, uint8_t b);
+  uint16_t readPixel(uint16_t x, uint16_t y);
+
   void line(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end);
 
   void rect(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end);
