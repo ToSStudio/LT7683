@@ -134,7 +134,7 @@ tft.print("Hello");
 * ### Drawing Primitives
 
 ```cpp
-tft.drawPixel(100, 100, 255, 0, 0); // a red px
+tft.drawPixel(100, 100, 255, 0, 0); // a red px at x = 100, y = 100
 
 uint16_t c = tft.readPixel(100, 100); Serial.println(c, HEX); // RGB565 value
 
