@@ -144,6 +144,27 @@ Serial.println(c, HEX); // RGB565 value
 * `triangle()`, `fillTriangle()`
 * `arc()`, `fillArc()`
 
+* ### Drawing Primitives
+
+```cpp
+tft.line(10, 10, 100, 100);
+
+tft.rect(20, 20, 120, 80);
+tft.fillRect(20, 100, 120, 160);
+
+tft.circle(200, 120, 40);
+tft.fillCircle(320, 120, 40);
+
+tft.ellipse(500, 120, 80, 40);
+tft.fillEllipse(700, 120, 80, 40);
+
+tft.triangle(100, 200, 150, 300, 50, 300);
+tft.fillTriangle(250, 200, 300, 300, 200, 300);
+
+tft.arc(500, 300, 60, 40, 0x01);
+tft.fillArc(650, 300, 60, 40, 0x01);
+```
+
 ---
 
 ### Text
