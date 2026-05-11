@@ -11,8 +11,8 @@ Designed for **performance, clarity, and minimal overhead**, with direct registe
 ## ✨ Features
 
 * Fast drawing primitives:
-* `drawPixel()`
-* `readPixel()`
+* drawPixel
+* readPixel
 * Lines, rectangles, circles, triangles, arcs
 * Filled shapes and rounded rectangles
 * Text rendering with size and scale control (inherits from print)
