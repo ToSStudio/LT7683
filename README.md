@@ -221,7 +221,7 @@ Example:
 
 ```cpp
 tft.set7SegScale(2);
-tft.plot7Seg(200, 200, 5);
+tft.plot7Seg(200, 200, 5); // draws a '5' at x = 200, y = 200
 ```
 
 Features:
